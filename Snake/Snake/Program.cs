@@ -16,7 +16,7 @@ namespace Snake
 				pnt.x = iter;
 				pnt.y = iter;
 				pnt.sym = '*';
-				DrawChar(pnt);
+				pnt.DrawChar();
 			}
 			
 			Console.ReadLine();
