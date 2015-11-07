@@ -8,12 +8,12 @@ namespace Snake
 {
 	class VerticalLine : Figure
 	{
-		public VerticalLine(int _top, int _bottom, int _x, char _sym)
+		public VerticalLine(int top, int bottom, int x, char sym)
 		{
 			this.plist = new List<Point>();
-			for (int iter = _top; iter <= _bottom; iter++)
+			for (int iter = top; iter <= bottom; iter++)
 			{
-				this.plist.Add(new Point(_x, iter, _sym));
+				this.plist.Add(new Point(x, iter, sym));
 			}
 		}
 	}

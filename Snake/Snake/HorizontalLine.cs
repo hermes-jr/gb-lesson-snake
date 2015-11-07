@@ -8,12 +8,12 @@ namespace Snake
 {
 	class HorizontalLine : Figure
 	{
-		public HorizontalLine(int _left, int _right, int _y, char _sym)
+		public HorizontalLine(int left, int right, int y, char sym)
 		{
 			this.plist = new List<Point>();
-			for (int iter = _left; iter <= _right; iter++)
+			for (int iter = left; iter <= right; iter++)
 			{
-				this.plist.Add(new Point(iter, _y, _sym));
+				this.plist.Add(new Point(iter, y, sym));
 			}
 		}
 	}
