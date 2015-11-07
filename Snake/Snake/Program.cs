@@ -61,6 +61,8 @@ namespace Snake
 						break; // Get the hell out of this infinite loop
 				}
 				Thread.Sleep(50); // Control FPS here
+				Console.SetCursorPosition(2, 2);
+				Console.Write("Length: " + snake.length);
 			}
 
 			Console.SetCursorPosition(2, 2);

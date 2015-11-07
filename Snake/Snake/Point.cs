@@ -41,6 +41,13 @@ namespace Snake
 			this.Draw();
 		}
 
+		public bool Hits(Point p)
+		{
+			if (p.x == this.x && p.y == this.y)
+				return true;
+			return false;
+		}
+
 		public void Move(int offset, Direction direction)
 		{
 			switch(direction)

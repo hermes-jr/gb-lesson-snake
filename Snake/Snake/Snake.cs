@@ -9,7 +9,7 @@ namespace Snake
 	class Snake : Figure
 	{
 		Direction direction;
-		int length;
+		public int length;
 
 		public Snake(Point tail, int length, Direction direction) {
 			this.direction = direction;
@@ -55,19 +55,14 @@ namespace Snake
 				this.direction = Direction.UP;
 		}
 
-		private void Grow()
-		{
-			this.length++;
-			Point newhead = new Point(plist.Last());
-			newhead.Move(1, this.direction);
-			plist.Add(newhead);
-		}
-
 		public bool Eat(Point food)
 		{
-			if(this.plist.Last().x ==  food.x && this.plist.Last().y == food.y)
+			Point head = this.GetNextPoint();
+			if (head.Hits(food))
 			{
-				this.Grow();
+				food.sym = head.sym;
+				this.plist.Add(food);
+				this.length++;
 				return true;
 			}
 			else
