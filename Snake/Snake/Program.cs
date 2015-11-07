@@ -10,20 +10,24 @@ namespace Snake
 	{
 		static void Main(string[] args)
 		{
+			int winW = Console.WindowWidth - 1;
+			int winH = Console.WindowHeight - 1;
+
 			for (int iter = 0; iter < 10; iter++)
 			{
 				Point pnt = new Point(iter, iter, '*');
 				pnt.DrawChar();
 			}
 
-			HorizontalLine hline1 = new HorizontalLine(2, 20, 10, '#');
+			HorizontalLine hline1 = new HorizontalLine(0, winW, 0, '#');
 			hline1.DrawLine();
-			HorizontalLine hline2 = new HorizontalLine(2, 20, 20, '#');
+			HorizontalLine hline2 = new HorizontalLine(0, winW, winH, '#');
 			hline2.DrawLine();
 
-			VerticalLine vline1 = new VerticalLine(10, 20, 2, '#');
+			VerticalLine vline1 = new VerticalLine(0, winH, 0, '#');
 			vline1.DrawLine();
-			VerticalLine vline2 = new VerticalLine(10, 20, 20, '#');
+			VerticalLine vline2 = new VerticalLine(0
+				, winH, winW, '#');
 			vline2.DrawLine();
 
 			Console.ReadLine();
