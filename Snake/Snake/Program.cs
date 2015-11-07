@@ -35,7 +35,7 @@ namespace Snake
 
 			// Snake
 			Point tl = new Point(10, 10, '*');
-			Snake snake = new Snake(tl, 20, Direction.RIGHT);
+			Snake snake = new Snake(tl, 4, Direction.RIGHT);
 
 			// Food
 			FoodFactory foodfactory = new FoodFactory(winH, winW, '$');
@@ -44,6 +44,15 @@ namespace Snake
 
 			while (true)
 			{
+				if (snake.Eat(food))
+				{
+					food = foodfactory.createFood();
+					food.Draw();
+				}
+				else
+				{
+					snake.Move();
+				}
 				if (Console.KeyAvailable)
 				{
 					ConsoleKeyInfo key = Console.ReadKey();
@@ -51,8 +60,7 @@ namespace Snake
 					if (key.Key == ConsoleKey.Q)
 						break; // Get the hell out of this infinite loop
 				}
-				Thread.Sleep(100); // Control FPS here
-				snake.Move();
+				Thread.Sleep(50); // Control FPS here
 			}
 
 			Console.SetCursorPosition(2, 2);

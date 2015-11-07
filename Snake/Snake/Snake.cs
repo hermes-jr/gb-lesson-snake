@@ -9,12 +9,14 @@ namespace Snake
 	class Snake : Figure
 	{
 		Direction direction;
+		int length;
 
 		public Snake(Point tail, int length, Direction direction) {
 			this.direction = direction;
+			this.length = length;
 
 			plist = new List<Point>();
-			for (int iter = 0; iter < length; iter++)
+			for (int iter = 0; iter < this.length; iter++)
 			{
 				Point p = new Point(tail);
 				p.Move(iter, direction);
@@ -51,6 +53,27 @@ namespace Snake
 				this.direction = Direction.DOWN;
 			else if (key == ConsoleKey.UpArrow)
 				this.direction = Direction.UP;
+		}
+
+		private void Grow()
+		{
+			this.length++;
+			Point newhead = new Point(plist.Last());
+			newhead.Move(1, this.direction);
+			plist.Add(newhead);
+		}
+
+		public bool Eat(Point food)
+		{
+			if(this.plist.Last().x ==  food.x && this.plist.Last().y == food.y)
+			{
+				this.Grow();
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 }
