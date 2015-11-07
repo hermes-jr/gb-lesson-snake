@@ -15,7 +15,7 @@ namespace Snake
 				Point pnt = new Point(iter, iter, '*');
 				pnt.DrawChar();
 			}
-			
+
 			Console.ReadLine();
 		}
 	}
