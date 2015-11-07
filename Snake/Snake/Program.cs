@@ -21,17 +21,5 @@ namespace Snake
 			
 			Console.ReadLine();
 		}
-
-		static void DrawChar(int x, int y, char sym)
-		{
-			Console.SetCursorPosition(x, y);
-			Console.Write(sym);
-		}
-		
-		static void DrawChar(Point p)
-		{
-			Console.SetCursorPosition(p.x, p.y);
-			Console.Write(p.sym);
-		}
 	}
 }
