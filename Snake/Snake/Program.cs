@@ -16,6 +16,13 @@ namespace Snake
 				pnt.DrawChar();
 			}
 
+			List<int> numList = new List<int>();
+			numList.Add(77);
+			numList.Add(10);
+			numList.Add(34);
+
+			int cc = numList[1]; // 10
+
 			Console.ReadLine();
 		}
 	}
