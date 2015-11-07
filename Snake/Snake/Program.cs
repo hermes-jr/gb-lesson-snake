@@ -42,18 +42,17 @@ namespace Snake
 				if (Console.KeyAvailable)
 				{
 					ConsoleKeyInfo key = Console.ReadKey();
-					if( key.Key == ConsoleKey.LeftArrow) 
-						snake.direction = Direction.LEFT;
-					else if( key.Key == ConsoleKey.RightArrow)
-						snake.direction = Direction.RIGHT;
-					else if( key.Key == ConsoleKey.DownArrow)
-						snake.direction = Direction.DOWN;
-					else if( key.Key == ConsoleKey.UpArrow)
-						snake.direction = Direction.UP;
+					snake.HandleKey(key.Key);
+					if (key.Key == ConsoleKey.Q)
+						break; // Get the hell out of this infinite loop
 				}
-				Thread.Sleep(200);
+				Thread.Sleep(100); // Control FPS here
 				snake.Move();
 			}
+
+			Console.SetCursorPosition(2, 2);
+			Console.Write("Thank you for playing. Bye!");
+			Thread.Sleep(1000);
 		}
 	}
 }
