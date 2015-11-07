@@ -33,9 +33,14 @@ namespace Snake
 			VerticalLine vline2 = new VerticalLine(0, winH, winW, '#');
 			vline2.Draw();
 
+			// Snake
 			Point tl = new Point(10, 10, '*');
 			Snake snake = new Snake(tl, 20, Direction.RIGHT);
 
+			// Food
+			FoodFactory foodfactory = new FoodFactory(winH, winW, '$');
+			Point food = foodfactory.createFood();
+			food.Draw();
 
 			while (true)
 			{
