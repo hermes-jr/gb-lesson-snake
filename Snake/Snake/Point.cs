@@ -37,6 +37,8 @@ namespace Snake
 
 		public void Clear()
 		{
+			this.sym = ' ';
+			this.Draw();
 		}
 
 		public void Move(int offset, Direction direction)
