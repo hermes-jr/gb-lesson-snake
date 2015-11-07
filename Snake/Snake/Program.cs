@@ -23,14 +23,14 @@ namespace Snake
 			int winW = Console.WindowWidth - 1;
 			int winH = Console.WindowHeight - 1;
 
-			HorizontalLine hline1 = new HorizontalLine(0, winW, 0, '#');
+			Line hline1 = new Line(Direction.RIGHT, 0, winW, 0, '#');
 			hline1.Draw();
-			HorizontalLine hline2 = new HorizontalLine(0, winW, winH, '#');
+			Line hline2 = new Line(Direction.RIGHT, 0, winW, winH, '#');
 			hline2.Draw();
 
-			VerticalLine vline1 = new VerticalLine(0, winH, 0, '#');
+			Line vline1 = new Line(Direction.DOWN, 0, winH, 0, '#');
 			vline1.Draw();
-			VerticalLine vline2 = new VerticalLine(0, winH, winW, '#');
+			Line vline2 = new Line(Direction.DOWN, 0, winH, winW, '#');
 			vline2.Draw();
 
 			// Snake
