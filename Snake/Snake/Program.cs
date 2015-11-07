@@ -10,8 +10,18 @@ namespace Snake
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Heya");
+			for (int iter = 0; iter < 10; iter++)
+			{
+				DrawChar(10, iter, '#');
+			}
+			
 			Console.ReadLine();
+		}
+
+		static void DrawChar(int x, int y, char sym)
+		{
+			Console.SetCursorPosition(x, y);
+			Console.Write(sym);
 		}
 	}
 }
