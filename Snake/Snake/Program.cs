@@ -23,6 +23,15 @@ namespace Snake
 
 			int cc = numList[1]; // 10
 
+			List<Point> pnList = new List<Point>();
+			pnList.Add(new Point(20, 20, 'x'));
+			pnList.Add(new Point(10, 15, 'y'));
+			pnList.Add(new Point(15, 10, 'z'));
+
+			foreach (Point pnt in pnList)
+			{
+				pnt.DrawChar();
+			}
 			Console.ReadLine();
 		}
 	}
