@@ -16,7 +16,7 @@ namespace Snake
 				pnt.x = iter;
 				pnt.y = iter;
 				pnt.sym = '*';
-				DrawChar(pnt.x, pnt.y, pnt.sym);
+				DrawChar(pnt);
 			}
 			
 			Console.ReadLine();
@@ -26,6 +26,12 @@ namespace Snake
 		{
 			Console.SetCursorPosition(x, y);
 			Console.Write(sym);
+		}
+		
+		static void DrawChar(Point p)
+		{
+			Console.SetCursorPosition(p.x, p.y);
+			Console.Write(p.sym);
 		}
 	}
 }
