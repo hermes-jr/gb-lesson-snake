@@ -12,7 +12,11 @@ namespace Snake
 		{
 			for (int iter = 0; iter < 10; iter++)
 			{
-				DrawChar(10, iter, '#');
+				Point pnt = new Point();
+				pnt.x = iter;
+				pnt.y = iter;
+				pnt.sym = '*';
+				DrawChar(pnt.x, pnt.y, pnt.sym);
 			}
 			
 			Console.ReadLine();
