@@ -23,18 +23,19 @@ namespace Snake
 			int winH = Console.WindowHeight - 1;
 
 			HorizontalLine hline1 = new HorizontalLine(0, winW, 0, '#');
-			hline1.DrawLine();
+			hline1.Draw();
 			HorizontalLine hline2 = new HorizontalLine(0, winW, winH, '#');
-			hline2.DrawLine();
+			hline2.Draw();
 
 			VerticalLine vline1 = new VerticalLine(0, winH, 0, '#');
-			vline1.DrawLine();
+			vline1.Draw();
 			VerticalLine vline2 = new VerticalLine(0, winH, winW, '#');
-			vline2.DrawLine();
+			vline2.Draw();
 
 			Point tl = new Point(10, 10, '*');
-			Snake snake = new Snake(tl, 20, Direction.DOWN);
-			snake.DrawLine();
+			Snake snake = new Snake(tl, 20, Direction.RIGHT);
+			snake.Draw();
+			snake.Move();
 
 			// Don't close now
 			Console.ReadLine();

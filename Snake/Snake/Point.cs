@@ -29,10 +29,14 @@ namespace Snake
 			this.sym = p.sym;
 		}
 		
-		public void DrawChar()
+		public void Draw()
 		{
 			Console.SetCursorPosition(this.x, this.y);
 			Console.Write(this.sym);
+		}
+
+		public void Clear()
+		{
 		}
 
 		public void Move(int offset, Direction direction)

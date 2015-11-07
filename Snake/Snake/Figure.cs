@@ -11,11 +11,11 @@ namespace Snake
 		protected 
 			List<Point> plist;
 
-		public void DrawLine()
+		public void Draw()
 		{
 			foreach (Point p in this.plist)
 			{
-				p.DrawChar();
+				p.Draw();
 			}
 		}
 	}
