@@ -194,3 +194,7 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+/Snake/Snake.sln
+/Snake/Snake/App.config
+/Snake/Snake/Properties/AssemblyInfo.cs
+/Snake/Snake/Snake.csproj
