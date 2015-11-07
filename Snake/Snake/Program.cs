@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
+	enum Direction
+	{
+		LEFT,
+		UP,
+		DOWN,
+		RIGHT
+	}
+
 	class Program
 	{
 		static void Main(string[] args)
 		{
+			// Border
 			int winW = Console.WindowWidth - 1;
 			int winH = Console.WindowHeight - 1;
-
-			for (int iter = 0; iter < 10; iter++)
-			{
-				Point pnt = new Point(iter, iter, '*');
-				pnt.DrawChar();
-			}
 
 			HorizontalLine hline1 = new HorizontalLine(0, winW, 0, '#');
 			hline1.DrawLine();
@@ -26,10 +29,14 @@ namespace Snake
 
 			VerticalLine vline1 = new VerticalLine(0, winH, 0, '#');
 			vline1.DrawLine();
-			VerticalLine vline2 = new VerticalLine(0
-				, winH, winW, '#');
+			VerticalLine vline2 = new VerticalLine(0, winH, winW, '#');
 			vline2.DrawLine();
 
+			Point tl = new Point(10, 10, '*');
+			Snake snake = new Snake(tl, 20, Direction.DOWN);
+			snake.DrawLine();
+
+			// Don't close now
 			Console.ReadLine();
 		}
 	}
