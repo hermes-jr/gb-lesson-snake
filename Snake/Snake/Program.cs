@@ -36,16 +36,24 @@ namespace Snake
 			Point tl = new Point(10, 10, '*');
 			Snake snake = new Snake(tl, 20, Direction.RIGHT);
 
-			for (int iter = 0; iter < 20; iter++)
-			{
-				snake.Draw();
-				snake.Move();
-				Thread.Sleep(300);
-			}
-			
 
-			// Don't close now
-			Console.ReadLine();
+			while (true)
+			{
+				if (Console.KeyAvailable)
+				{
+					ConsoleKeyInfo key = Console.ReadKey();
+					if( key.Key == ConsoleKey.LeftArrow) 
+						snake.direction = Direction.LEFT;
+					else if( key.Key == ConsoleKey.RightArrow)
+						snake.direction = Direction.RIGHT;
+					else if( key.Key == ConsoleKey.DownArrow)
+						snake.direction = Direction.DOWN;
+					else if( key.Key == ConsoleKey.UpArrow)
+						snake.direction = Direction.UP;
+				}
+				Thread.Sleep(200);
+				snake.Move();
+			}
 		}
 	}
 }
