@@ -22,6 +22,8 @@ namespace Snake
 			// Border
 			int winW = Console.WindowWidth - 1;
 			int winH = Console.WindowHeight - 1;
+			winH = 40;
+			winW = 60;
 
 			Walls walls = new Walls(winW, winH);
 			walls.Draw();
