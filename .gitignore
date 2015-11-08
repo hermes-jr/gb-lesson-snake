@@ -198,3 +198,5 @@ FakesAssemblies/
 /Snake/Snake/App.config
 /Snake/Snake/Properties/AssemblyInfo.cs
 /Snake/Snake/Snake.csproj
+/Snake/Snake/Properties/app.manifest
+/Snake/Snake/Imil-Animals-Snake.ico
