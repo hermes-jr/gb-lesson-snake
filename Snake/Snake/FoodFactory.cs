@@ -21,9 +21,14 @@ namespace Snake
 			this.sym = sym;
 		}
 
-		public Point createFood()
+		public Point createFood(Snake avoidsnake)
 		{
-			Point foodPoint = new Point(rand.Next(2, winW - 2), rand.Next(2, winH - 2), sym);
+			Point foodPoint;
+			do
+			{
+				foodPoint = new Point(rand.Next(4, winW - 2), rand.Next(4, winH - 2), sym);
+			}
+			while (avoidsnake.IsHit(foodPoint));
 			return foodPoint;
 		}
 	}

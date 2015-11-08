@@ -35,10 +35,10 @@ namespace Snake
 		{
 			this.wallList = new List<Shape>();
 
-			Line hline1 = new Line(Direction.RIGHT, 0, winW, 0, '#');
+			Line hline1 = new Line(Direction.RIGHT, 0, winW, 3, '#');
 			Line hline2 = new Line(Direction.RIGHT, 0, winW, winH, '#');
-			Line vline1 = new Line(Direction.DOWN, 0, winH, 0, '#');
-			Line vline2 = new Line(Direction.DOWN, 0, winH, winW, '#');
+			Line vline1 = new Line(Direction.DOWN, 3, winH, 0, '#');
+			Line vline2 = new Line(Direction.DOWN, 3, winH, winW, '#');
 			this.wallList.Add(hline1);
 			this.wallList.Add(hline2);
 			this.wallList.Add(vline1);

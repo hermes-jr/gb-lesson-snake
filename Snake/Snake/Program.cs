@@ -20,10 +20,12 @@ namespace Snake
 		static void Main(string[] args)
 		{
 			// Dimensions
-			int winW = Console.WindowWidth - 1;
-			int winH = Console.WindowHeight - 1;
-			//winH = 40;
-			//winW = 60;
+			//int winW = Console.WindowWidth - 1;
+			//int winH = Console.WindowHeight - 1;
+			int winH = 20;
+			int winW = 34;
+
+			ushort level = 1;
 
 			// Border
 			Walls walls = new Walls(winW, winH);
@@ -31,11 +33,11 @@ namespace Snake
 
 			// Snake
 			Point tl = new Point(10, 10, '*');
-			Snake snake = new Snake(tl, 4, Direction.RIGHT);
+			Snake snake = new Snake(tl, 3, Direction.RIGHT);
 
 			// Food
 			FoodFactory foodfactory = new FoodFactory(winH, winW, '$');
-			Point food = foodfactory.createFood();
+			Point food = foodfactory.createFood(snake);
 			Console.ForegroundColor = ConsoleColor.Yellow;
 			food.Draw();
 			Console.ResetColor();
@@ -53,10 +55,13 @@ namespace Snake
 				}
 				if (snake.Eat(food))
 				{
-					food = foodfactory.createFood();
+					food = foodfactory.createFood(snake);
 					Console.ForegroundColor = ConsoleColor.Yellow;
 					food.Draw();
 					Console.ResetColor();
+					// level up every 5 feeds and level cap is 40 (121 - level * 3 must be > 0)
+					if (snake.length % 5 == 0 && level < 40)
+						level++;
 				}
 				else
 				{
@@ -69,9 +74,12 @@ namespace Snake
 					if (key.Key == ConsoleKey.Q)
 						break; // Get the hell out of this infinite loop
 				}
-				Thread.Sleep(80); // Control FPS here
-				Console.SetCursorPosition(2, 2);
-				Console.Write("Length: " + snake.length);
+
+				// Thread.Sleep(80); // Control FPS here
+				Thread.Sleep(121 - level * 3);
+
+				Console.SetCursorPosition(2, 1);
+				Console.Write("Length: " + snake.length + " Level: " + level);
 			}
 
 			// Print banner and wait for Enter key
