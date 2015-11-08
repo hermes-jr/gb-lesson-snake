@@ -26,4 +26,43 @@ namespace Snake
 			}
 		}
 	}
+
+	class Walls
+	{
+		List<Shape> wallList;
+
+		public Walls(int winW, int winH)
+		{
+			this.wallList = new List<Shape>();
+
+			Line hline1 = new Line(Direction.RIGHT, 0, winW, 0, '#');
+			Line hline2 = new Line(Direction.RIGHT, 0, winW, winH, '#');
+			Line vline1 = new Line(Direction.DOWN, 0, winH, 0, '#');
+			Line vline2 = new Line(Direction.DOWN, 0, winH, winW, '#');
+			this.wallList.Add(hline1);
+			this.wallList.Add(hline2);
+			this.wallList.Add(vline1);
+			this.wallList.Add(vline2);
+		}
+
+		internal bool IsHit(Shape shape)
+		{
+			foreach (var wall in this.wallList)
+			{
+				if(wall.IsHit(shape))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public void Draw()
+		{
+			foreach (var wall in this.wallList)
+			{
+				wall.Draw();
+			}
+		}
+	}
 }

@@ -23,15 +23,8 @@ namespace Snake
 			int winW = Console.WindowWidth - 1;
 			int winH = Console.WindowHeight - 1;
 
-			Line hline1 = new Line(Direction.RIGHT, 0, winW, 0, '#');
-			hline1.Draw();
-			Line hline2 = new Line(Direction.RIGHT, 0, winW, winH, '#');
-			hline2.Draw();
-
-			Line vline1 = new Line(Direction.DOWN, 0, winH, 0, '#');
-			vline1.Draw();
-			Line vline2 = new Line(Direction.DOWN, 0, winH, winW, '#');
-			vline2.Draw();
+			Walls walls = new Walls(winW, winH);
+			walls.Draw();
 
 			// Snake
 			Point tl = new Point(10, 10, '*');
@@ -40,14 +33,26 @@ namespace Snake
 			// Food
 			FoodFactory foodfactory = new FoodFactory(winH, winW, '$');
 			Point food = foodfactory.createFood();
+			Console.ForegroundColor = ConsoleColor.Yellow;
 			food.Draw();
+			Console.ResetColor();
 
+			// Infinite loop
 			while (true)
 			{
+				if (walls.IsHit(snake) || snake.IsHitTail())
+				{
+					// Snake dies
+					Console.SetCursorPosition(2, 2);
+					Console.Write("Snake died...");
+					break;
+				}
 				if (snake.Eat(food))
 				{
 					food = foodfactory.createFood();
+					Console.ForegroundColor = ConsoleColor.Yellow;
 					food.Draw();
+					Console.ResetColor();
 				}
 				else
 				{
@@ -65,7 +70,7 @@ namespace Snake
 				Console.Write("Length: " + snake.length);
 			}
 
-			Console.SetCursorPosition(2, 2);
+			Console.SetCursorPosition(2, 3);
 			Console.Write("Thank you for playing. Bye!");
 			Thread.Sleep(1000);
 		}

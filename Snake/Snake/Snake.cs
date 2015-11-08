@@ -26,6 +26,8 @@ namespace Snake
 
 		internal void Move()
 		{
+			Console.ForegroundColor = ConsoleColor.DarkGreen;
+
 			Point tail = this.plist.First();
 			plist.Remove(tail);
 			Point head = this.GetNextPoint();
@@ -33,6 +35,8 @@ namespace Snake
 
 			tail.Clear();
 			head.Draw();
+
+			Console.ResetColor();
 		}
 
 		public Point GetNextPoint()
@@ -69,6 +73,11 @@ namespace Snake
 			{
 				return false;
 			}
+		}
+
+		internal bool IsHitTail()
+		{
+			return false;
 		}
 	}
 }

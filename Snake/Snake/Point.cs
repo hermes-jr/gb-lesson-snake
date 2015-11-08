@@ -29,6 +29,12 @@ namespace Snake
 			this.sym = p.sym;
 		}
 		
+		public void Draw(ConsoleColor color)
+		{
+			Console.ForegroundColor = color;
+			this.Draw();
+		}
+
 		public void Draw()
 		{
 			Console.SetCursorPosition(this.x, this.y);
