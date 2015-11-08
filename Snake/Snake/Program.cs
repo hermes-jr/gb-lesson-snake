@@ -19,12 +19,13 @@ namespace Snake
 	{
 		static void Main(string[] args)
 		{
-			// Border
+			// Dimensions
 			int winW = Console.WindowWidth - 1;
 			int winH = Console.WindowHeight - 1;
-			winH = 40;
-			winW = 60;
+			//winH = 40;
+			//winW = 60;
 
+			// Border
 			Walls walls = new Walls(winW, winH);
 			walls.Draw();
 
@@ -46,7 +47,8 @@ namespace Snake
 				{
 					// Snake dies
 					Console.SetCursorPosition(2, 2);
-					Console.Write("Snake died...");
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.Write("Snake collapsed...");
 					break;
 				}
 				if (snake.Eat(food))
@@ -62,19 +64,28 @@ namespace Snake
 				}
 				if (Console.KeyAvailable)
 				{
-					ConsoleKeyInfo key = Console.ReadKey();
+					ConsoleKeyInfo key = Console.ReadKey(true);
 					snake.HandleKey(key.Key);
 					if (key.Key == ConsoleKey.Q)
 						break; // Get the hell out of this infinite loop
 				}
-				Thread.Sleep(50); // Control FPS here
+				Thread.Sleep(80); // Control FPS here
 				Console.SetCursorPosition(2, 2);
 				Console.Write("Length: " + snake.length);
 			}
 
-			Console.SetCursorPosition(2, 3);
-			Console.Write("Thank you for playing. Bye!");
-			Thread.Sleep(1000);
+			// Print banner and wait for Enter key
+			Console.ForegroundColor = ConsoleColor.Yellow;
+			int endplaneX = Math.Abs((winW / 2) - 15);
+			Console.SetCursorPosition(endplaneX, 7);
+			Console.Write("===============================");
+			Console.SetCursorPosition(endplaneX, 8);
+			Console.Write("| Thank you for playing. Bye! |");
+			Console.SetCursorPosition(endplaneX, 9);
+			Console.Write("|   Press Enter key to quit.  |");
+			Console.SetCursorPosition(endplaneX, 10);
+			Console.Write("===============================");
+			while (Console.ReadKey(true).Key != ConsoleKey.Enter) { }
 		}
 	}
 }
